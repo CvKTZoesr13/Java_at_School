@@ -1,0 +1,44 @@
+import java.text.DecimalFormat;
+import java.util.Scanner;
+
+public class NhanVienDemo {
+	static int soNV, loaiNV;
+	static double tongLuong = 0f;
+	static NhanVien myNV[];
+
+	static void nhapDSNV() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Nhap vao so luong nhan vien: ");
+		soNV = sc.nextInt();
+		myNV = new NhanVien[soNV];
+		for (int i = 0; i < soNV; i++) {
+			System.out.println("1. NVSX, 2. NVVP");
+			loaiNV = sc.nextInt();
+			if (loaiNV == 1) {
+				myNV[i] = new NhanVienSX();
+			} else {
+				myNV[i] = new NhanVienVP();
+			}
+			myNV[i].nhap();
+			tongLuong = tongLuong + myNV[i].tinhLuong() + myNV[i].tinhPhuCap();
+		}
+	}
+	
+	static void inDSNV() {
+		System.out.println("Danh sach nhan vien san xuat cua cong ty la: ");
+		NhanVienSX.inTieuDe();
+		for (int i = 0; i < soNV; i++) {
+			if(myNV[i] instanceof NhanVienSX) {
+				myNV[i].xuatDL();
+				DecimalFormat f = new DecimalFormat
+						("###,###.0#");
+				System.out.println("Tong luong nhan vien: " + f.format(tongLuong));
+			}
+		}
+	}
+	
+	public static void main(String[] args) {
+		nhapDSNV();
+		inDSNV();
+	}
+}

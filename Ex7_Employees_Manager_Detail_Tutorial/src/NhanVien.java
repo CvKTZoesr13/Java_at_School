@@ -1,0 +1,60 @@
+import java.time.LocalDate;
+import java.util.Date;
+import java.util.Scanner;
+
+abstract class NhanVien {
+	protected String maNV, hoTen;
+	protected int namVaoLam;
+	static double tongLuong;
+	final double PHUCAP_BANDAU = 100000;
+	abstract public double tinhLuong(); // phuong thuc truu tuong
+	
+	
+	public String getMaNV() {
+		return maNV;
+	}
+	protected double tinhPhuCap() {
+		@SuppressWarnings("unused")
+		Date now = new Date();
+		int d = LocalDate.now().getYear();
+		return PHUCAP_BANDAU + (d-namVaoLam)* 20000;
+		
+	}
+	
+	public NhanVien(String maNV) {
+		this.hoTen = "";
+		this.maNV = maNV;
+		this.namVaoLam = 2012;
+		
+	}
+	
+	public NhanVien() {
+		this.hoTen = "";
+		this.maNV = "NV01";
+		this.namVaoLam = 2012;
+		
+	}
+	public void nhap() {
+		@SuppressWarnings("resource")
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Nhap vao ma nhan vien: ");
+		this.maNV = sc.nextLine();
+		System.out.println("Nhap vao ho va ten: ");
+		this.hoTen = sc.nextLine();
+		System.out.println("Nhap nam vao lam: ");
+		this.namVaoLam = sc.nextInt();		
+		
+	}
+	public static void inTieuDe() {
+		System.out.printf("-%10s -%15s %6s", "Ma NV", "Ho ten", "Nam vao lam");
+		
+	}
+	
+	
+	public void xuatDL() {
+		System.out.printf("-%10s -%15s %6d", maNV, hoTen, namVaoLam);
+	}
+	
+	
+}

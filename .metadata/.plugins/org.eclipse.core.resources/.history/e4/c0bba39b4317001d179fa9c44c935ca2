@@ -1,0 +1,65 @@
+import java.util.Scanner;
+
+public class NhanVien {
+	// attributes
+	private String maNV;
+	private int soSP;
+	
+	
+	// constructor method 
+	public NhanVien() {};
+	public NhanVien(String maNV, int soSP) {
+		this.maNV = maNV;
+		this.soSP = soSP;
+	}
+	// getter and setter methods
+	public String getMaNV() {
+		return maNV;
+	}
+	public void setMaNV(String maNV) {
+		this.maNV = maNV;
+	}
+	public int getSoSP() {
+		return soSP;
+	}
+	public void setSoSP(int soSP) {
+		this.soSP = soSP;
+	}
+	
+	// kiem tra dat chuan
+	public boolean coDatChuan() {
+		return this.soSP > 500;
+	}
+	public String getTongKet() {
+		if(coDatChuan()) {
+			System.out.println("Vuot!");
+		}
+		return null;
+	}
+	// lay luong
+	public double getLuong() {
+		if(coDatChuan()) {
+			return this.soSP * 30000;
+			
+		} else 
+			return this.soSP * 20000;
+	}
+	public static void inTieuDe() {
+		System.out.printf("%10s %10s %10s %12s", "Ma NV", "So SP", "Luong", "Tong ket");
+		
+	}
+	public void xuatTieuDe() {
+		System.out.printf("%10s %10d %10d %12s", maNV, soSP, getLuong(), getTongKet());
+	}
+	
+	public void nhap() {
+		@SuppressWarnings("resource")
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Nhap vao ma nhan vien: ");
+		this.maNV = sc.nextLine();
+		System.out.println("Nhap vao so san pham: ");
+		this.soSP = sc.nextInt();
+		
+	}
+}

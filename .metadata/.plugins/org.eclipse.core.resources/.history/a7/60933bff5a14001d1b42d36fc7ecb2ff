@@ -1,0 +1,105 @@
+import java.util.Scanner;
+
+public class test {
+	public static Scanner sc = new Scanner(System.in);
+
+	public static void main(String[] args) {
+
+		// date of employment
+		Date d1 = new Date(12, 8, 2020);
+		Date d2 = new Date(12, 8, 2020);
+		Date d3 = new Date(12, 8, 2020);
+		// birthday
+		Date b1 = new Date(16, 7, 2001);
+		Date b2 = new Date(16, 7, 2001);
+		Date b3 = new Date(16, 7, 2001);
+		Employees e1 = new Employees("Nguyen Van", "Hoang", b1, d1);
+		Employees e2 = new Employees("Nguyen Van", "B", b2, d2);
+		Employees e3 = new Employees("Nguyen Van", "C", b3, d3);
+		// employees array
+		Employees arr[] = new Employees[3];
+		arr[0] = e1;
+		arr[1] = e2;
+		arr[2] = e3;
+		System.out.println(e1.toString());
+
+		Scanner sc = new Scanner(System.in);
+		int d = 0, m = 0, y = 0, de1 = 0, me1 = 0, ye1 = 0, de12 = 0, me12 = 0, ye12 = 0;
+		String surName = "", lastName = "";
+		Date birthday = new Date(d, m, y), dateOfEmployment = new Date(de1, me1, ye1);
+		Date birthday2 = new Date(d, m, y);
+		Date birthday1 = new Date(d, m, y);
+//		for (int i = 0; i < arr.length; i++) {
+//			System.out.println("Input surname arr[" + i + "]: ");
+//			surName = sc.nextLine();
+//			System.out.println("Input lastname arr[" + i + "]: ");
+//			lastName = sc.nextLine();
+//			System.out.println("Input birthday arr[" + i + "]: ");
+//			System.out.println("Input day: ");
+//			d = sc.nextInt();
+//			sc.nextLine();
+//			arr[i].birthday.setDay(d);
+//			
+//			
+//			System.out.println("Input month: ");
+//			m = sc.nextInt();
+//			sc.nextLine();
+//			birthday.setMonth(m);
+//			System.out.println("Input year: ");
+//			y = sc.nextInt();
+//			sc.nextLine();
+//			birthday.setYear(y);
+//			System.out.println("Input date of employment arr[" + i + "]: ");
+//			System.out.println("Input day: ");
+//			de1 = sc.nextInt();
+//			sc.nextLine();			
+//			dateOfEmployment.setDay(de1);
+//			System.out.println("Input month: ");
+//			me1 = sc.nextInt();
+//			sc.nextLine();
+//			dateOfEmployment.setMonth(me1);
+//			System.out.println("Input year: ");
+//			ye1 = sc.nextInt();
+//			sc.nextLine();
+//			dateOfEmployment.setYear(ye1);
+//			
+//			arr[i] = new Employees(surName, lastName, birthday, dateOfEmployment);
+//		}
+
+		// Print table
+		System.out.println(
+				"-------------------------------------------------------------------------------------------------");
+		System.out.println("| Surname \t|\t Lastname \t|\t Birthday \t|\t Date of employment \t|");
+		System.out.println(
+				"-------------------------------------------------------------------------------------------------");
+		for (int i = 0; i < arr.length; i++) {
+			System.out.println(arr[i].getSurName() + "\t|\t" + arr[i].getFirstName() + "\t" + "\t|\t"
+					+ arr[i].getBirthday() + "\t|\t\t" + arr[i].getDateOfEmployment() + "\t|");
+		}
+		System.out.println(
+				"-------------------------------------------------------------------------------------------------");
+		birthday.setDate(de1, me1, ye1);
+		birthday1.setDate(de1, me1, ye1);
+		birthday2.setDate(de1, me1, ye1);
+
+		arr[0].setBirthday(birthday);
+		arr[1].setBirthday(birthday1);
+		arr[2].setBirthday(birthday2);
+
+		// Print table
+		System.out.println(
+				"-------------------------------------------------------------------------------------------------");
+		System.out.println("| Surname \t|\t Lastname \t|\t Birthday \t|\t Date of employment \t|");
+		System.out.println(
+				"-------------------------------------------------------------------------------------------------");
+		for (int i = 0; i < arr.length; i++) {
+			System.out.println(arr[i].getSurName() + "\t|\t" + arr[i].getFirstName() + "\t" + "\t|\t"
+					+ arr[i].getBirthday() + "\t|\t\t" + arr[i].getDateOfEmployment() + "\t|");
+		}
+		System.out.println(
+				"-------------------------------------------------------------------------------------------------");
+		sc.close();
+		System.exit(0);
+	}
+
+}

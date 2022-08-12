@@ -1,0 +1,34 @@
+
+import java.util.Scanner;
+
+public class NhanVienDemo {
+	static int soNV, loaiNV;
+	static NhanVien myNV[];
+
+	static void nhapDSNV() {
+		@SuppressWarnings("resource")
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Nhap vao so luong nhan vien: ");
+		soNV = sc.nextInt();
+		myNV = new NhanVien[soNV];
+		for (int i = 0; i < soNV; i++) {
+			myNV[i] = new NhanVien(); // fix bug: NhanVienDemo.myNV[i] = null;
+			myNV[i].nhap();
+		}
+	}
+
+	static void inDSNV() {
+
+		NhanVien.inTieuDe();
+		for (int i = 0; i < soNV; i++) {
+			if (myNV[i] instanceof NhanVien) {
+				myNV[i].xuatTieuDe();
+			}
+		}
+	}
+
+	public static void main(String[] args) {
+		nhapDSNV();
+		inDSNV();
+	}
+}

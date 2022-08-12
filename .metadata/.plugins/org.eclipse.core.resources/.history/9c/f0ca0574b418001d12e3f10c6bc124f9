@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+public class KhachHang {
+	private String hoTen, diaChi;
+
+	public KhachHang(String hoTen, String diaChi) {
+
+		this.hoTen = hoTen;
+		this.diaChi = diaChi;
+	}
+
+	public void nhap() {
+
+		@SuppressWarnings("resource")
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Nhap vao ho ten khach hang: ");
+		hoTen = sc.nextLine();
+		System.out.println("Nhap vao dia chi khach hang: ");
+		diaChi = sc.nextLine();
+	}
+}
